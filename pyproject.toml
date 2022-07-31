@@ -1,0 +1,24 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.poetry]
+authors = ["Martin Hjelmare <marhje52@gmail.com>"]
+description = ""
+license = "Apache Software License 2.0"
+name = "github-actions-workflows"
+version = "0.0.0"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+python-semantic-release = "^7.31.2"
+
+[tool.semantic_release]
+branch = "main"
+build_command = "pip install poetry && poetry build"
+upload_to_release = false
+upload_to_repository = false
+version_source = "tag"
+version_toml = "pyproject.toml:tool.poetry.version"
