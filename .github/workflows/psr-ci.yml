@@ -31,7 +31,7 @@ jobs:
         uses: actions/cache@v3.0.8
         with:
           path: ~/.local # the path depends on the OS
-          key: dotlocal-${{ runner.os }}-1 # increment to reset cache
+          key: dotlocal-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-0 # increment to reset cache
       - name: Install Poetry
         uses: snok/install-poetry@v1.3.1
         with:
@@ -86,7 +86,7 @@ jobs:
         uses: actions/cache@v3.0.8
         with:
           path: ~/.local # the path depends on the OS
-          key: dotlocal-${{ runner.os }}-1 # increment to reset cache
+          key: dotlocal-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-0 # increment to reset cache
       - name: Install Poetry
         uses: snok/install-poetry@v1.3.1
         with:
