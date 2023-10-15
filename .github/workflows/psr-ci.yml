@@ -121,6 +121,7 @@ jobs:
     concurrency: release
     permissions:
       id-token: write
+      contents: write
     environment: release
     if: github.ref == 'refs/heads/main'
     needs:
