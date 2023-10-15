@@ -2,6 +2,13 @@
 
 
 
+## v0.2.4 (2023-10-15)
+
+### Fix
+
+* fix: revert to pypi token (#32) ([`1807be8`](https://github.com/MartinHjelmare/github-actions-workflows/commit/1807be8fbd7aab053b8e9fe0ca1ecb546798ab5d))
+
+
 ## v0.2.3 (2023-10-15)
 
 ### Fix
