@@ -11,7 +11,7 @@ on:
       CODECOV_TOKEN:
         required: false
       PYPI_TOKEN:
-        required: false
+        required: true
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -152,3 +152,5 @@ jobs:
         # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
         # See https://github.com/actions/runner/issues/1173
         if: ${{ (env.NO_PYPI == '') && (steps.release.outputs.released == 'true') }}
+        with:
+          password: ${{ secrets.PYPI_TOKEN }}
