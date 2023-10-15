@@ -7,6 +7,9 @@ authors = ["Martin Hjelmare <marhje52@gmail.com>"]
 description = ""
 license = "Apache Software License 2.0"
 name = "github-actions-workflows"
+packages = [
+  {include = "github-actions-workflows", from = "src"},
+]
 version = "0.0.0"
 
 [tool.poetry.dependencies]
