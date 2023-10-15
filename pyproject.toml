@@ -28,4 +28,7 @@ version_source = "tag"
 version_toml = ["pyproject.toml:tool.poetry.version"]
 
 [tool.semantic_release.changelog]
-exclude_commit_patterns = ["^chore.*"]
+exclude_commit_patterns = [
+  "^chore.*",
+  "^ci.*",
+]
