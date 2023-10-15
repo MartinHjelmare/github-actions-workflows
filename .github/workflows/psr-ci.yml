@@ -114,7 +114,13 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   release:
+    # Avoid publishing to PyPI from the template workflow
+    env:
+      NO_PYPI: ${{ vars.NO_PYPI }}
     runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
     environment: release
     if: github.ref == 'refs/heads/main'
     needs:
@@ -132,9 +138,13 @@ jobs:
       # - Update version in code
       # - Create git tag
       # - Create GitHub release
-      # - Publish to PyPI
       - name: Python Semantic Release
-        uses: relekang/python-semantic-release@v8.1.1
+        id: release
+        uses: python-semantic-release/python-semantic-release@v8.1.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          pypi_token: ${{ secrets.PYPI_TOKEN }}
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.8.10
+        # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
+        # See https://github.com/actions/runner/issues/1173
+        if: ${{ (env.NO_PYPI == '') && (steps.release.outputs.released == 'true') }}
