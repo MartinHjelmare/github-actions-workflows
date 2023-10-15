@@ -2,6 +2,13 @@
 
 
 
+## v0.2.3 (2023-10-15)
+
+### Fix
+
+* fix: make pypi token optional (#31) ([`b81af4d`](https://github.com/MartinHjelmare/github-actions-workflows/commit/b81af4d84a742b0356976d1e73f0d8a5eb33bb45))
+
+
 ## v0.2.2 (2023-10-15)
 
 ### Fix
