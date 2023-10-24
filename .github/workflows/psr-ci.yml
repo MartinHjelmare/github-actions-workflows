@@ -135,7 +135,7 @@ jobs:
 
       # Do a dry run of PSR
       - name: Test release
-        uses: python-semantic-release/python-semantic-release@v8.1.2
+        uses: python-semantic-release/python-semantic-release@v8.3.0
         if: github.ref_name != 'main'
         with:
           root_options: --noop
@@ -143,7 +143,7 @@ jobs:
       - name: Release
         id: release
         if: github.ref_name == 'main'
-        uses: python-semantic-release/python-semantic-release@v8.1.2
+        uses: python-semantic-release/python-semantic-release@v8.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish package distributions to PyPI
