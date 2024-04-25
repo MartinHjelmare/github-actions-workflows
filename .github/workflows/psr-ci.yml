@@ -21,7 +21,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - name: Set up Python
         id: setup-python
         uses: actions/setup-python@v5.1.0
@@ -59,7 +59,7 @@ jobs:
     name: Lint Commit Messages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
         with:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v5.5.1
@@ -76,7 +76,7 @@ jobs:
           - ubuntu-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
       - name: Set up Python
         id: setup-python
         uses: actions/setup-python@v5.1.0
@@ -128,7 +128,7 @@ jobs:
       - commitlint
 
     steps:
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
